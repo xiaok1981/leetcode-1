@@ -1,4 +1,4 @@
-class LRUCache:
+class LRUCache(object):
     def __init__(self, capacity):
         """
         :type capacity: int
@@ -21,14 +21,12 @@ class LRUCache:
         else:
             return -1
 
-    def set(self, key, value):
+    def put(self, key, value):
         """
         :type key: int
         :type value: int
         :rtype: nothing
         """
-        if not key or not value:
-            return None
         if key in self.cache:
             self.queue.remove(key)
         elif len(self.queue) == self.capacity:
@@ -48,7 +46,7 @@ class LRUCache:
     #     self.dic[key] = v  # set key as the newest one
     #     return v
     #
-    # def set(self, key, value):
+    # def put(self, key, value):
     #     if key in self.dic:
     #         self.dic.pop(key)
     #     else:
